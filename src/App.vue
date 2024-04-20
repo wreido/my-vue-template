@@ -11,4 +11,6 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
 const locale = zhCn
 const size = ref('small')
 const zIndex = ref(3000)
+
+console.log(import.meta.env)
 </script>
