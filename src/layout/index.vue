@@ -5,44 +5,47 @@
     </section>
     <section class="app-body">
       <section class="app-aside">
-        <el-icon size="20"><i-ep-edit /></el-icon>
+        <Menu />
       </section>
-      <section class="app-container">{{ test }}</section>
+      <section class="app-container">
+        <AppMain />
+      </section>
     </section>
   </div>
 </template>
 
 <script setup lang="ts" name="Layout">
 import Header from './components/Header/index.vue'
-import { ref } from 'vue'
-
-let test = ref(0)
-
-console.log(111)
+import Menu from './components/Menu/index.vue'
+import AppMain from './components/AppMain/index.vue'
 </script>
 
 <style scoped lang="scss">
 .app-warpper {
-  display: flex;
-  flex-direction: column;
   width: 100vw;
   min-height: 100vh;
   .app-header {
-    flex-shrink: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
     background-color: #202032;
     height: 70px;
   }
   .app-body {
-    flex: 1;
     display: flex;
     background-color: #f2f7fe;
+
     .app-aside {
       flex-shrink: 0;
       width: 230px;
+      height: 100vh;
+      padding-top: 70px;
       background-color: #ffffff;
     }
     .app-container {
       flex: 1;
+      padding: 94px 24px 24px 24px;
     }
   }
 }
