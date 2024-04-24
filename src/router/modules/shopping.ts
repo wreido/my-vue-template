@@ -1,3 +1,5 @@
+import Layout from '@/layout/index.vue'
+
 const routes = [
   {
     path: '/shopping',
@@ -6,6 +8,7 @@ const routes = [
       {
         path: '/shopping/goods',
         name: 'Goods',
+        component: Layout,
         children: [
           {
             path: '/shopping/goods/list',
