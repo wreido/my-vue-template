@@ -13,8 +13,8 @@ import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/d/my-vue-template/dist/',
-  // base: './',
+  // base: '/d/my-vue-template/dist/',
+  base: './',
   plugins: [
     vue(),
     vueSetupExtend(),

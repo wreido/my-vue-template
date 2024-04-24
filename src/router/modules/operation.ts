@@ -10,8 +10,10 @@ const routes = [
           {
             path: '/operation/summary/cateSellStatisticsProportion',
             name: 'CateSellStatisticsProportion',
-            component: () => () =>
-              import(/* webpackChunkName: "about" */ '@/views/shopping/goods/list/index.vue'),
+            component: () =>
+              import(
+                /* webpackChunkName: "CateSellStatisticsProportion" */ '@/views/shopping/goods/list/index.vue'
+              ),
             meta: { title: '品类重点分析' }
           }
         ]

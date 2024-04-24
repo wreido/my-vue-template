@@ -1,5 +1,3 @@
-import Layout from '@/layout/index.vue'
-
 const routes = [
   {
     path: '/shopping',
@@ -8,13 +6,12 @@ const routes = [
       {
         path: '/shopping/goods',
         name: 'Goods',
-        component: Layout,
         children: [
           {
             path: '/shopping/goods/list',
             name: 'GoodsList',
-            component: () => () =>
-              import(/* webpackChunkName: "about" */ '@/views/shopping/goods/list/index.vue'),
+            component: () =>
+              import(/* webpackChunkName: "goodsList" */ '@/views/shopping/goods/list/index.vue'),
             meta: { title: '商品列表' }
           }
         ]

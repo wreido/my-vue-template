@@ -2,11 +2,7 @@
   <section class="app-main">
     <Breadcrumb />
 
-    <transition name="fade-transform" mode="out-in">
-      <keep-alive>
-        <router-view />
-      </keep-alive>
-    </transition>
+    <router-view />
 
     <div @click="test">按钮</div>
   </section>
