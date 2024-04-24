@@ -12,5 +12,5 @@ const locale = zhCn
 const size = ref('small')
 const zIndex = ref(3000)
 
-console.log(import.meta.env)
+// console.log(import.meta.env)
 </script>

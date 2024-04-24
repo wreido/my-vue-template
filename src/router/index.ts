@@ -1,7 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/index.vue'
 
-const asyncRoutes = []
+const modules = import.meta.glob('./modules/**/*.ts', { eager: true }) as any
+
+let asyncRoutes: RouteRecordRaw[] = []
+
+for (const path in modules) {
+  asyncRoutes = asyncRoutes.concat(modules[path].default)
+}
 
 const constantRoutes = [
   {
@@ -17,3 +24,5 @@ const router = createRouter({
 })
 
 export default router
+
+export { asyncRoutes }
