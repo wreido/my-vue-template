@@ -45,7 +45,7 @@ import AppMain from './components/AppMain/index.vue'
     }
     .app-container {
       flex: 1;
-      padding: 94px 24px 24px 24px;
+      padding: 82px 12px 12px 12px;
     }
   }
 }

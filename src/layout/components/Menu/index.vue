@@ -4,70 +4,6 @@
     <div>{{ aa }}</div>
     <div>{{ aa }}</div>
     <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
-    <div>{{ aa }}</div>
   </section>
 </template>
 
@@ -85,5 +21,6 @@ const aa = ref(0)
   overflow-x: hidden;
   scrollbar-width: none;
   padding-bottom: 100px;
+  padding-inline: 8px;
 }
 </style>
