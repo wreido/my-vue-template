@@ -15,18 +15,6 @@ const constantRoutes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'home',
     component: Layout
-  },
-  {
-    path: '/test',
-    name: 'test',
-    component: Layout,
-    children: [
-      {
-        name: 'Test1',
-        path: '/test/aaa',
-        component: () => import('@/views/shopping/goods/list/index.vue')
-      }
-    ]
   }
 ]
 

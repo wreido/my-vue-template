@@ -1,7 +1,2 @@
-import useUserStore from './modules/user'
-
-export default function useStore() {
-  return {
-    user: useUserStore()
-  }
-}
+export * from './module/user'
+export * from './module/permission'
