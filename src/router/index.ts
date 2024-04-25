@@ -4,13 +4,13 @@ import type { RouteRecordRaw } from 'vue-router'
 
 const modules = import.meta.glob('./modules/**/*.ts', { eager: true }) as any
 
-let asyncRoutes: any[] = []
+let asyncRoutes: Array<RouteRecordRaw> = []
 
 for (const path in modules) {
   asyncRoutes = asyncRoutes.concat(modules[path].default)
 }
 
-const constantRoutes: RouteRecordRaw[] = [
+const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'home',
