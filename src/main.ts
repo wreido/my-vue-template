@@ -7,12 +7,16 @@ import router from './router'
 import init from './permission'
 import './assets/main.css'
 
-const app = createApp(App)
-const pinia = createPinia()
-pinia.use(piniaPluginPersistedstate)
-app.use(pinia)
+async function call() {
+  const app = createApp(App)
+  const pinia = createPinia()
+  pinia.use(piniaPluginPersistedstate)
+  app.use(pinia)
 
-await init()
+  await init()
 
-app.use(router)
-app.mount('#app')
+  app.use(router)
+  app.mount('#app')
+}
+
+call()
