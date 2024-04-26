@@ -32,6 +32,8 @@ const init = async () => {
     item.children ? item.children.map((r: any) => ({ ...r, component: Layout })) : []
   )
   flag.forEach((routerItem) => router.addRoute(routerItem))
+
+  console.log(router.getRoutes())
 }
 
 export default init
