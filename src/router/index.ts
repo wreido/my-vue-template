@@ -19,5 +19,3 @@ const router = createRouter({
 export default router
 
 export { asyncRoutes }
-
-console.log(asyncRoutes)

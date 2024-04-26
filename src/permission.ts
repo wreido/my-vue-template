@@ -29,11 +29,14 @@ const init = async () => {
   const accessRoutes: Array<RouteRecordRaw> = await permission.generateRoutes(perms)
 
   const flag: Array<RouteRecordRaw> = accessRoutes.flatMap((item) =>
-    item.children ? item.children.map((r: any) => ({ ...r, component: Layout })) : []
+    item.children
+      ? item.children.map((r: any) => ({ ...r, component: r.component ? r.component : Layout }))
+      : []
   )
   flag.forEach((routerItem) => router.addRoute(routerItem))
 
-  console.log(router.getRoutes())
+  console.log(accessRoutes)
+  console.log(flag)
 }
 
 export default init
