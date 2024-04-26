@@ -1,4 +1,4 @@
 export default {
-  title: 'index',
+  name: '用户',
   menuOrder: 0
 }

@@ -1,7 +1,6 @@
 import router from '@/router'
 import Layout from '@/layout/index.vue'
 import { usePermission } from '@/stores'
-import type { RouteRecordRaw } from 'vue-router'
 
 // const whiteList = ['/login', '/auth-redirect']
 
@@ -24,19 +23,24 @@ import type { RouteRecordRaw } from 'vue-router'
 // })
 
 const init = async () => {
-  const perms = ['shopping', 'shopping:goods', 'shopping:goods:list']
-  const permission = usePermission()
-  const accessRoutes: Array<RouteRecordRaw> = await permission.generateRoutes(perms)
+  try {
+    const perms = ['shopping', 'shopping:goods', 'shopping:goods:list']
+    const { generateRoutes } = usePermission()
+    const accessRoutes = await generateRoutes(perms)
 
-  const flag: Array<RouteRecordRaw> = accessRoutes.flatMap((item) =>
-    item.children
-      ? item.children.map((r: any) => ({ ...r, component: r.component ? r.component : Layout }))
-      : []
-  )
-  flag.forEach((routerItem) => router.addRoute(routerItem))
+    accessRoutes.forEach((route) => {
+      if (route.children && route.children.length > 0) {
+        route.children.forEach((child) => {
+          child.component = child.component || Layout
+        })
+      }
+      router.addRoute(route)
+    })
 
-  console.log(accessRoutes)
-  console.log(flag)
+    console.log(accessRoutes)
+  } catch (error) {
+    console.error('Failed to initialize routes:', error)
+  }
 }
 
 export default init
