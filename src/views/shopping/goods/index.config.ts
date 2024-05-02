@@ -1,4 +1,4 @@
 export default {
-  title: 'index',
+  name: '商品管理',
   menuOrder: 0
 }
