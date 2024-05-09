@@ -1,5 +1,5 @@
 <template>
-  <div>111</div>
+  <div>商品列表</div>
   <button @click="test">按钮</button>
 </template>
 

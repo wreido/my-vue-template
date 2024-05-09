@@ -1,6 +1,6 @@
 <template>
   <template v-if="!menuItem.meta?.hidden">
-    <el-menu-item :index="menuItem.path">
+    <el-menu-item :index="menuItem.path" :router="menuItem">
       {{ menuItem.meta?.name }}
     </el-menu-item>
   </template>
