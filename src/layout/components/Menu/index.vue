@@ -1,12 +1,6 @@
 <template>
   <section class="menu-box">
-    <el-menu
-      class="el-menu-vertical-demo"
-      default-active="1-4"
-      router
-      @open="handleOpen"
-      @close="handleClose"
-    >
+    <el-menu class="el-menu-vertical-demo" router :default-active="activeMenu()">
       <template v-for="item in permission.accessedRoutes" :key="item.name">
         <template v-if="!item.meta?.hidden">
           <SubMenu v-for="subMenu in item.children" :key="subMenu.name" :subMenu="subMenu" />
@@ -18,16 +12,19 @@
 
 <script setup lang="ts" name="Menu">
 import { usePermission } from '@/stores'
+import { useRoute } from 'vue-router'
 import SubMenu from './SubMenu.vue'
 
 const permission = usePermission()
-console.log(permission.accessedRoutes)
+const route = useRoute()
 
-const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
-const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+const activeMenu = () => {
+  const { meta, path } = route
+
+  if (meta.activeMenu) {
+    return meta.activeMenu
+  }
+  return path
 }
 </script>
 
