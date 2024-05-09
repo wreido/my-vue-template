@@ -5,6 +5,7 @@
       <template v-for="router in permission.accessedRoutes" :key="router.path">
         <div
           class="item"
+          :class="route.path.indexOf(`${router.path}`) !== -1 ? 'item curr' : 'item'"
           v-if="!router.meta?.hidden && router.meta?.name"
           @click="changeRouterModule(router)"
         >
@@ -18,11 +19,12 @@
 
 <script setup lang="ts" name="Header">
 import type { RouteRecordRaw } from 'vue-router'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { usePermission } from '@/stores'
 
 const permission = usePermission()
 const router = useRouter()
+const route = useRoute()
 
 const changeRouterModule = (item: RouteRecordRaw) => {
   const fatherRoute = permission.accessedRoutes.find((el) => el.path === item.path)
@@ -45,7 +47,8 @@ const changeRouterModule = (item: RouteRecordRaw) => {
   padding: 10px 20px;
   .logo {
     flex-shrink: 0;
-    min-width: 230px;
+    min-width: 190px;
+    margin-right: 20px;
   }
   .menu {
     flex: 1;
