@@ -22,21 +22,24 @@ import AppMain from './components/AppMain/index.vue'
 
 <style scoped lang="scss">
 .app-warpper {
-  width: 100vw;
+  max-width: 100vw;
   min-height: 100vh;
   .app-header {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1;
     width: 100vw;
     background-color: #202032;
     height: 70px;
   }
   .app-body {
-    display: flex;
     background-color: #f2f7fe;
 
     .app-aside {
+      position: fixed;
+      top: 0;
+      left: 0;
       flex-shrink: 0;
       width: 230px;
       height: 100vh;
@@ -44,8 +47,9 @@ import AppMain from './components/AppMain/index.vue'
       background-color: #ffffff;
     }
     .app-container {
-      flex: 1;
-      padding: 82px 12px 12px 12px;
+      max-width: 100vw;
+      min-height: 100vh;
+      padding: 82px 12px 12px 242px;
     }
   }
 }

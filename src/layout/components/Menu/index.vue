@@ -35,6 +35,7 @@ const isCollapse = ref(false)
   overflow-x: hidden;
   scrollbar-width: none;
   padding-bottom: 100px;
+  // padding-inline: 8px;
   ::v-deep(.el-menu) {
     border-right: none;
   }
