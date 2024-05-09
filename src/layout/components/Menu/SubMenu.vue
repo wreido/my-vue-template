@@ -18,7 +18,6 @@
 </template>
 
 <script setup lang="ts" name="Menu">
-import { defineProps } from 'vue'
 import MenuItem from './MenuItem.vue'
 defineProps({
   subMenu: {
