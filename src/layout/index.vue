@@ -35,7 +35,6 @@ import AppMain from './components/AppMain/index.vue'
   }
   .app-body {
     background-color: #f2f7fe;
-
     .app-aside {
       position: fixed;
       top: 0;
