@@ -49,7 +49,7 @@ import AppMain from './components/AppMain/index.vue'
     .app-container {
       max-width: 100vw;
       min-height: 100vh;
-      padding: 82px 12px 12px 242px;
+      padding: 90px 20px 20px 250px;
     }
   }
 }
