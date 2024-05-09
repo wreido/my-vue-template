@@ -1,6 +1,12 @@
 <template>
   <section class="menu-box">
-    <el-menu class="el-menu-vertical-demo" router :default-active="route.path">
+    <el-menu
+      class="el-menu-vertical-demo"
+      router
+      :default-active="route.path"
+      :collapse="isCollapse"
+      :collapse-transition="false"
+    >
       <template v-for="item in permission.accessedRoutes" :key="item.name">
         <template v-if="!item.meta?.hidden">
           <SubMenu v-for="subMenu in item.children" :key="subMenu.name" :subMenu="subMenu" />
@@ -11,12 +17,14 @@
 </template>
 
 <script setup lang="ts" name="Menu">
+import { ref } from 'vue'
 import { usePermission } from '@/stores'
 import { useRoute } from 'vue-router'
 import SubMenu from './SubMenu.vue'
 
 const permission = usePermission()
 const route = useRoute()
+const isCollapse = ref(false)
 </script>
 
 <style scoped lang="scss">

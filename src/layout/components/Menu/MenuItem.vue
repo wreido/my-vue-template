@@ -1,12 +1,16 @@
 <template>
   <template v-if="!menuItem.meta?.hidden">
     <el-menu-item :index="menuItem.path">
-      {{ menuItem.meta?.name }}
+      <el-icon v-if="menuItem.meta?.icon"><component :is="ICON[menuItem.meta?.icon]" /> </el-icon>
+      <span> {{ menuItem.meta?.name }}</span>
     </el-menu-item>
   </template>
 </template>
 
 <script setup lang="ts" name="Menu">
+import { reactive } from 'vue'
+import * as Icons from '@element-plus/icons-vue'
+
 defineProps({
   menuItem: {
     type: Object,
@@ -16,4 +20,6 @@ defineProps({
     }
   }
 })
+
+const ICON: any = reactive(Icons)
 </script>

@@ -2,7 +2,10 @@
   <template v-if="!subMenu.meta?.hidden">
     <template v-if="subMenu.children && subMenu.children?.length > 0">
       <el-sub-menu :index="subMenu.path">
-        <template #title>{{ subMenu.meta?.name }}</template>
+        <template #title>
+          <el-icon v-if="subMenu.meta?.icon"><component :is="ICON[subMenu.meta?.icon]" /> </el-icon>
+          <span>{{ subMenu.meta?.name }}</span>
+        </template>
         <menu-item
           v-for="menu in subMenu.children"
           :index="menu.path"
@@ -18,7 +21,10 @@
 </template>
 
 <script setup lang="ts" name="Menu">
+import { reactive } from 'vue'
+import * as Icons from '@element-plus/icons-vue'
 import MenuItem from './MenuItem.vue'
+
 defineProps({
   subMenu: {
     type: Object,
@@ -28,4 +34,6 @@ defineProps({
     }
   }
 })
+
+const ICON: any = reactive(Icons)
 </script>
