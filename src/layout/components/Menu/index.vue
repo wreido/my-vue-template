@@ -6,7 +6,7 @@
       @open="handleOpen"
       @close="handleClose"
     >
-      <template v-for="item in permission.accessedRoutes" :key="item.name">
+      <!-- <template v-for="item in permission.accessedRoutes" :key="item.name">
         <template v-if="!item.meta?.hidden">
           <template v-for="subMenu in item.children" :key="subMenu.name">
             <template v-if="subMenu.children && subMenu.children?.length > 0">
@@ -30,6 +30,11 @@
             </template>
           </template>
         </template>
+      </template> -->
+      <template v-for="item in permission.accessedRoutes" :key="item.name">
+        <template v-if="!item.meta?.hidden">
+          <SubMenu v-for="subMenu in item.children" :key="subMenu.name" :subMenu="subMenu" />
+        </template>
       </template>
     </el-menu>
   </section>
@@ -37,6 +42,8 @@
 
 <script setup lang="ts" name="Menu">
 import { usePermission } from '@/stores'
+import SubMenu from './SubMenu.vue'
+
 const permission = usePermission()
 console.log(permission.accessedRoutes)
 

@@ -3,7 +3,11 @@
     <section class="logo"></section>
     <section class="menu">
       <template v-for="router in permission.accessedRoutes" :key="router.path">
-        <div class="item" v-if="router.meta?.name" @click="changeRouterModule(router)">
+        <div
+          class="item"
+          v-if="!router.meta?.hidden && router.meta?.name"
+          @click="changeRouterModule(router)"
+        >
           {{ router.meta?.name }}
         </div>
       </template>
