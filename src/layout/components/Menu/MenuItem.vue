@@ -1,7 +1,7 @@
 <template>
   <template v-if="!menuItem.meta?.hidden">
     <el-menu-item :index="menuItem.path">
-      <el-icon v-if="menuItem.meta?.icon"><component :is="ICON[menuItem.meta?.icon]" /> </el-icon>
+      <el-icon v-if="menuItem.meta?.icon"><component :is="ICON[menuItem.meta?.icon]" /></el-icon>
       <span> {{ menuItem.meta?.name }}</span>
     </el-menu-item>
   </template>
