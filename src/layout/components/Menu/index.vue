@@ -27,11 +27,8 @@ const route = useRoute()
   overflow-x: hidden;
   scrollbar-width: none;
   padding-bottom: 100px;
-  // padding-inline: 8px;
-  ::v-deep {
-    .el-menu {
-      border-right: none;
-    }
+  ::v-deep(.el-menu) {
+    border-right: none;
   }
 }
 </style>

@@ -12,28 +12,24 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 // https://vitejs.dev/config/
-export default ({ mode }: any) => {
-  const env = loadEnv(mode, process.cwd())
-
-  return defineConfig({
-    base: env.VITE_ENV === 'development' ? './' : '/d/my-vue-template/dist/',
-    plugins: [
-      vue(),
-      vueSetupExtend(),
-      vueJsx(),
-      VueDevTools(),
-      AutoImport({
-        resolvers: [ElementPlusResolver(), IconsResolver({ prefix: 'Icon' })]
-      }),
-      Components({
-        resolvers: [IconsResolver({ enabledCollections: ['ep'] }), ElementPlusResolver()]
-      }),
-      Icons({ autoInstall: true })
-    ],
-    resolve: {
-      alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url))
-      }
+export default defineConfig(({ mode }) => ({
+  base: loadEnv(mode, process.cwd()).VITE_ENV === 'development' ? './' : '/d/my-vue-template/dist/',
+  plugins: [
+    vue(),
+    vueSetupExtend(),
+    vueJsx(),
+    VueDevTools(),
+    AutoImport({
+      resolvers: [ElementPlusResolver(), IconsResolver({ prefix: 'Icon' })]
+    }),
+    Components({
+      resolvers: [IconsResolver({ enabledCollections: ['ep'] }), ElementPlusResolver()]
+    }),
+    Icons({ autoInstall: true })
+  ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  })
-}
+  }
+}))
