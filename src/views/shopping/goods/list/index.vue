@@ -26,7 +26,7 @@
   <div style="height: 500px">商品列表</div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="GoodsList">
 import { useRouter } from 'vue-router'
 
 let Router = useRouter()

@@ -7,7 +7,7 @@
   </template>
 </template>
 
-<script setup lang="ts" name="Menu">
+<script setup lang="ts" name="MenuItem">
 import { reactive } from 'vue'
 import * as Icons from '@element-plus/icons-vue'
 
