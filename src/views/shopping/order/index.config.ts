@@ -1,4 +1,5 @@
 export default {
   name: '订单管理',
-  icon: 'Notebook'
+  icon: 'Notebook',
+  hidden: false
 }
