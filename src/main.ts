@@ -6,6 +6,7 @@ import App from './App.vue'
 import router from './router'
 import init from './permission'
 import './assets/main.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
 
 async function call() {
   const app = createApp(App)

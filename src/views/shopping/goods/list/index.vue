@@ -21,6 +21,7 @@ let Router = useRouter()
 
 const test = () => {
   Router.push('/shopping/goods/process')
+  // document.getElementsByTagName('html')[0].className = ''
 }
 
 const tableData = [

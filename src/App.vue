@@ -13,4 +13,5 @@ const size = ref('small')
 const zIndex = ref(3000)
 
 // console.log(import.meta.env)
+// document.getElementsByTagName('html')[0].className = 'dark'
 </script>
