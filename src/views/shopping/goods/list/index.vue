@@ -31,12 +31,12 @@ const tableData = [
 ]
 
 const get = () => {
-  useRequest.get({ url: '/a' }).then((res) => console.log('GET:', res))
+  useRequest.get({ url: '/homeOverview/tradeSummary' }).then((res) => console.log('GET:', res))
 }
 
 const post = () => {
   useRequest
-    .post({ url: '/b', data: { message: 'POST' } })
+    .post({ url: '/homeOverview/tradeSummary', data: { message: 'POST' } })
     .then((data) => console.log('POST:', data))
 }
 

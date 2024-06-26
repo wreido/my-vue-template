@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3080'
+const baseUrl = '/manager'
 
 export default {
   baseUrl

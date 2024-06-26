@@ -8,6 +8,7 @@ import staticAxiosConfig from './config'
 
 const _RequstInterceptors: RequstInterceptors = {
   requestInterceptors(config) {
+    config.headers.Authorization = ''
     return config
   },
   requestInterceptorsCatch(err) {

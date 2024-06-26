@@ -31,5 +31,15 @@ export default defineConfig(({ mode }) => ({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  server: {
+    host: '0.0.0.0',
+    proxy: {
+      '^/manager/': {
+        target: 'http://8.134.100.190',
+        // target: 'https://platform.dmrentals.com.cn',
+        changeOrigin: true
+      }
+    }
   }
 }))
