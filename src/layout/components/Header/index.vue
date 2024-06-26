@@ -1,6 +1,6 @@
 <template>
   <div class="header-warpper">
-    <section class="logo"></section>
+    <section class="logo"><img src="@/assets/logo.svg" alt="" /></section>
     <section class="menu">
       <template v-for="router in permission.accessedRoutes" :key="router.path">
         <div
@@ -49,6 +49,11 @@ const changeRouterModule = (item: RouteRecordRaw) => {
     flex-shrink: 0;
     min-width: 190px;
     margin-right: 20px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
   .menu {
     flex: 1;
