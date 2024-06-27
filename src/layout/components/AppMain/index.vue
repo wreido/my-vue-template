@@ -1,7 +1,9 @@
 <template>
   <section class="app-main">
     <Breadcrumb />
-    <router-view />
+    <el-main class="app-container">
+      <router-view />
+    </el-main>
   </section>
 </template>
 
@@ -13,5 +15,11 @@ import Breadcrumb from './Breadcrumb.vue'
 .app-main {
   width: 100%;
   min-height: 100%;
+}
+
+.dark {
+  .app-container {
+    background-color: #202032;
+  }
 }
 </style>

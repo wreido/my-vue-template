@@ -52,4 +52,14 @@ import AppMain from './components/AppMain/index.vue'
     }
   }
 }
+.dark {
+  .app-warpper {
+    .app-body {
+      background-color: #111111;
+    }
+    .app-aside {
+      background-color: #202032;
+    }
+  }
+}
 </style>

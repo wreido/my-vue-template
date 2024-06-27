@@ -1,6 +1,6 @@
 <template>
   <div class="header-warpper">
-    <section class="logo"><img src="@/assets/logo.svg" alt="" /></section>
+    <section class="logo"><img src="@/assets/image/logo.svg" alt="" /></section>
     <section class="menu">
       <template v-for="router in permission.accessedRoutes" :key="router.path">
         <div
@@ -13,14 +13,24 @@
         </div>
       </template>
     </section>
-    <section class="user-info"></section>
+    <section class="user-info">
+      <el-switch
+        v-model="themeStatus"
+        size="large"
+        :active-action-icon="Sunny"
+        :inactive-action-icon="Moon"
+        @change="changeTheme"
+      />
+    </section>
   </div>
 </template>
 
 <script setup lang="ts" name="Header">
+import { ref } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
 import { useRouter, useRoute } from 'vue-router'
 import { usePermission } from '@/stores'
+import { Sunny, Moon } from '@element-plus/icons-vue'
 
 const permission = usePermission()
 const router = useRouter()
@@ -36,6 +46,23 @@ const changeRouterModule = (item: RouteRecordRaw) => {
     '/'
 
   router.push({ path })
+}
+
+const themeStatus = ref(true)
+const htmlDome = document.getElementsByTagName('html')[0]
+const themeMedia = window.matchMedia('(prefers-color-scheme: light)')
+if (themeMedia.matches) {
+  //light
+  themeStatus.value = true
+  htmlDome.className = 'light'
+} else {
+  //dark
+  themeStatus.value = false
+  htmlDome.className = 'dark'
+}
+
+const changeTheme = () => {
+  htmlDome.className = themeStatus.value ? 'light' : 'dark'
 }
 </script>
 

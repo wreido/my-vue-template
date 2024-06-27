@@ -5,7 +5,7 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import App from './App.vue'
 import router from './router'
 import init from './permission'
-import './assets/main.css'
+import './assets/styles/main.scss'
 import 'element-plus/theme-chalk/dark/css-vars.css'
 
 async function call() {

@@ -1,16 +1,14 @@
 <template>
-  <el-main style="background-color: #ffffff">
-    <div>商品列表</div>
-    <button @click="get">发送get请求</button>
-    <button @click="post">发送post请求</button>
-    <button @click="retryGet">重复执行GET请求</button>
-    <button @click="test">跳转商品审核</button>
-    <el-table :data="tableData" stripe style="width: 100%">
-      <el-table-column prop="date" label="Date" />
-      <el-table-column prop="name" label="Name" />
-      <el-table-column prop="address" label="Address" />
-    </el-table>
-  </el-main>
+  <div>商品列表</div>
+  <button @click="get">发送get请求</button>
+  <button @click="post">发送post请求</button>
+  <button @click="retryGet">重复执行GET请求</button>
+  <button @click="test">跳转商品审核</button>
+  <el-table :data="tableData" stripe style="width: 100%">
+    <el-table-column prop="date" label="Date" />
+    <el-table-column prop="name" label="Name" />
+    <el-table-column prop="address" label="Address" />
+  </el-table>
 </template>
 
 <script setup lang="ts" name="GoodsList">
@@ -21,7 +19,6 @@ let Router = useRouter()
 
 const test = () => {
   Router.push('/shopping/goods/process')
-  // document.getElementsByTagName('html')[0].className = ''
 }
 
 const tableData = [
