@@ -40,7 +40,7 @@ const post = () => {
 
 const retryGet = () => {
   useRequest
-    .get({ url: '/c' })
+    .post({ url: '/homeOverview/tradeSummary' })
     .then((res) => console.log('GET:', res))
     .catch((err) => {
       console.log('Err', err)

@@ -41,6 +41,7 @@ import AppMain from './components/AppMain/index.vue'
       left: 0;
       flex-shrink: 0;
       width: 230px;
+      // width: 80px;
       height: 100vh;
       padding-top: 70px;
       background-color: #ffffff;

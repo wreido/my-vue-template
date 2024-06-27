@@ -8,7 +8,8 @@ import staticAxiosConfig from './config'
 
 const _RequstInterceptors: RequstInterceptors = {
   requestInterceptors(config) {
-    config.headers.Authorization = ''
+    config.headers.Authorization =
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjowLCJjcmVhdGVUaW1lIjoxNzE5NDcwMTgyODIwLCJleHAiOjE3MTk3MjkzODIsInVzZXJJZCI6MX0.wo8uRVLs8qtTYXrmYjMU0xkSwV9OZ6bDcYg60Ta_fP0'
     return config
   },
   requestInterceptorsCatch(err) {
@@ -22,7 +23,7 @@ const _RequstInterceptors: RequstInterceptors = {
     if (axios.isCancel(err)) {
       return Promise.reject(err)
     }
-    console.log(err)
+    console.log(111, err)
     checkErrorStatus((err as AxiosError).response?.status, message, (message) =>
       console.log(message)
     )
