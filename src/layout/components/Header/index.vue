@@ -17,8 +17,8 @@
       <el-switch
         v-model="themeStatus"
         size="large"
-        :active-action-icon="Moon"
-        :inactive-action-icon="Sunny"
+        :active-action-icon="Sunny"
+        :inactive-action-icon="Moon"
         @change="changeTheme"
       />
     </section>
