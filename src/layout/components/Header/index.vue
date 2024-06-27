@@ -17,8 +17,8 @@
       <el-switch
         v-model="themeStatus"
         size="large"
-        :active-action-icon="Sunny"
-        :inactive-action-icon="Moon"
+        :active-action-icon="Moon"
+        :inactive-action-icon="Sunny"
         @change="changeTheme"
       />
     </section>
@@ -48,9 +48,11 @@ const changeRouterModule = (item: RouteRecordRaw) => {
   router.push({ path })
 }
 
+//主题切换
 const themeStatus = ref(true)
 const htmlDome = document.getElementsByTagName('html')[0]
 const themeMedia = window.matchMedia('(prefers-color-scheme: light)')
+
 if (themeMedia.matches) {
   //light
   themeStatus.value = true
@@ -60,6 +62,19 @@ if (themeMedia.matches) {
   themeStatus.value = false
   htmlDome.className = 'dark'
 }
+
+//监听系统主题
+themeMedia.addEventListener('change', (e) => {
+  if (e.matches) {
+    //light
+    themeStatus.value = true
+    htmlDome.className = 'light'
+  } else {
+    //dark
+    themeStatus.value = false
+    htmlDome.className = 'dark'
+  }
+})
 
 const changeTheme = () => {
   htmlDome.className = themeStatus.value ? 'light' : 'dark'

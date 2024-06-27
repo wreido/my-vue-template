@@ -15,11 +15,16 @@ import Breadcrumb from './Breadcrumb.vue'
 .app-main {
   width: 100%;
   min-height: 100%;
+  .app-container {
+    background-color: #ffffff;
+  }
 }
 
 .dark {
-  .app-container {
-    background-color: #202032;
+  .app-main {
+    .app-container {
+      background-color: #202032;
+    }
   }
 }
 </style>
