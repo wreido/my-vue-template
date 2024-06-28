@@ -1,3 +1,5 @@
 export default {
-  name: '订单列表'
+  meta: {
+    name: '订单列表'
+  }
 }

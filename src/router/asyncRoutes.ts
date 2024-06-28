@@ -6,21 +6,26 @@ const first: Array<RouteRecordRaw> = []
 const second: Array<RouteRecordRaw> = []
 const three: Array<RouteRecordRaw> = []
 
-Object.entries(pages).map(([path, meta]) => {
+type PageConfig = {
+  meta?: RouteMeta
+  [key: string]: any
+}
+
+Object.entries(pages).map(([path, pageConfig]) => {
   const compPath = path.replace('index.config.ts', 'index.vue')
   path = path.replace('../views/', '').replace('/index.config.ts', '') || '/'
-
+  const flag = pageConfig as PageConfig
   const name = path
     .split('/')
-    .map((item) => `${item.charAt(0).toUpperCase()}${item.substring(1, item.length)}`)
+    .map((item: string) => `${item.charAt(0).toUpperCase()}${item.substring(1, item.length)}`)
     .join('')
 
   const route: RouteRecordRaw = {
     path: `/${path}`,
     name,
-    meta: meta as RouteMeta,
     component: comps[compPath],
-    children: []
+    children: [],
+    ...flag
   }
 
   switch (path.split('/').length) {

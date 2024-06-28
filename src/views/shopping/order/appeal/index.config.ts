@@ -1,4 +1,6 @@
 export default {
-  name: '订单申诉',
-  hidden: false
+  meta: {
+    name: '订单申诉',
+    hidden: false
+  }
 }

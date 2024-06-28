@@ -5,5 +5,6 @@ declare module 'vue-router' {
     perms?: Array<String>
     name?: String
     hidden?: Boolean
+    [key: string]: any
   }
 }

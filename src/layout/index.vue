@@ -28,7 +28,7 @@ import AppMain from './components/AppMain/index.vue'
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 100;
     width: 100vw;
     background-color: #202032;
     height: 70px;

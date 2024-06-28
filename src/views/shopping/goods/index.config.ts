@@ -1,5 +1,6 @@
 export default {
-  name: '商品管理',
-  menuOrder: 0,
-  icon: 'Goods'
+  meta: {
+    name: '商品管理',
+    icon: 'Goods'
+  }
 }

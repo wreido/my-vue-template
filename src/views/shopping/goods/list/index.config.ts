@@ -1,4 +1,6 @@
 export default {
-  name: '商品列表',
-  menuOrder: 0
+  meta: {
+    name: '商品列表',
+    perms: ['shopping:goods:list']
+  }
 }
