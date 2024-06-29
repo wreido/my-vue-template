@@ -29,10 +29,10 @@
 import { ref } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
 import { useRouter, useRoute } from 'vue-router'
-import { usePermission } from '@/stores'
+import { usePermissionStore } from '@/stores'
 import { Sunny, Moon } from '@element-plus/icons-vue'
 
-const permission = usePermission()
+const permission = usePermissionStore()
 const router = useRouter()
 const route = useRoute()
 

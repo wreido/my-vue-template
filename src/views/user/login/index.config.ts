@@ -1,4 +1,4 @@
 export default {
-  name: '登陆',
+  name: 'Login',
   menuOrder: 0
 }

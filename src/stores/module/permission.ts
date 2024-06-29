@@ -24,13 +24,13 @@ export function filterAsyncRoutes(routes: Array<RouteRecordRaw>, perms: string[]
   return res
 }
 
-type UsePermission = {
+type usePermissionStore = {
   accessedRoutes: Array<RouteRecordRaw>
 }
 
-export const usePermission = defineStore({
-  id: 'user',
-  state: (): UsePermission => ({
+export const usePermissionStore = defineStore({
+  id: 'permission',
+  state: (): usePermissionStore => ({
     accessedRoutes: []
   }),
   actions: {

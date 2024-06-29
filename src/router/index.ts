@@ -1,14 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import Layout from '@/layout/index.vue'
+import Layout from '@/layout/index.vue'
 import type { RouteRecordRaw } from 'vue-router'
 import asyncRoutes from './asyncRoutes'
 
 const constantRoutes: Array<RouteRecordRaw> = [
-  // {
-  //   path: '/',
-  //   name: 'home',
-  //   component: Layout
-  // }
+  {
+    path: '/:pathMatch(.*)',
+    component: Layout
+  }
 ]
 
 const router = createRouter({

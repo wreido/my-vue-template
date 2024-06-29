@@ -1,22 +1,38 @@
 import { defineStore } from 'pinia'
+import { getUserInfo } from '@/server/api/common'
 
-const useUserStore = defineStore({
+type UseUserStore = {
+  userInfo: {
+    perms: string[]
+  }
+}
+
+export const useUserStore = defineStore({
   id: 'user',
-  state: () => ({
-    count: 0
+  state: (): UseUserStore => ({
+    userInfo: {
+      perms: []
+    }
   }),
   actions: {
-    increment() {
-      this.count++
-    },
-    decrement() {
-      this.count--
+    getUserInfo(): Promise<UseUserStore['userInfo']> {
+      return new Promise((resolve, reject) => {
+        getUserInfo()
+          .then(({ data }) => {
+            console.log(data)
+            this.userInfo.perms = data.perms ?? []
+            resolve(this.userInfo)
+          })
+          .catch((error) => {
+            reject(error)
+          })
+      })
     }
   },
   getters: {
-    doubleCount: ({ count }) => count * 2
+    // doubleCount: ({ count }) => count * 2
   },
-  persist: true
+  persist: false
   // persist: [
   //   {
   //     paths: ['toLocal'],
@@ -28,5 +44,3 @@ const useUserStore = defineStore({
   //   },
   // ],
 })
-
-export default useUserStore

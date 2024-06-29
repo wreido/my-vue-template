@@ -1,5 +1,5 @@
 export default {
-  name: '用户',
+  name: 'User',
   menuOrder: 0,
   hidden: true
 }

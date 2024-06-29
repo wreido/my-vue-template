@@ -1,6 +1,7 @@
 import { RequstInterceptors } from './type'
 import type { AxiosError } from 'axios'
 import axios from 'axios'
+import { getToken } from '@/utils/auth'
 import AxiosMax from './Axios'
 import { retry } from './axiosRetry'
 import { checkErrorStatus } from './checkErrorStatus'
@@ -8,8 +9,7 @@ import staticAxiosConfig from './config'
 
 const _RequstInterceptors: RequstInterceptors = {
   requestInterceptors(config) {
-    config.headers.Authorization =
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjowLCJjcmVhdGVUaW1lIjoxNzE5NDcwMTgyODIwLCJleHAiOjE3MTk3MjkzODIsInVzZXJJZCI6MX0.wo8uRVLs8qtTYXrmYjMU0xkSwV9OZ6bDcYg60Ta_fP0'
+    config.headers.Authorization = getToken()
     return config
   },
   requestInterceptorsCatch(err) {

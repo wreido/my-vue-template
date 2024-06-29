@@ -18,11 +18,11 @@
 
 <script setup lang="ts" name="Menu">
 import { ref } from 'vue'
-import { usePermission } from '@/stores'
+import { usePermissionStore } from '@/stores'
 import { useRoute } from 'vue-router'
 import SubMenu from './SubMenu.vue'
 
-const permission = usePermission()
+const permission = usePermissionStore()
 const route = useRoute()
 const isCollapse = ref(false)
 </script>
