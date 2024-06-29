@@ -9,6 +9,11 @@ const whiteList = ['/user/login']
 
 const init = async () => {
   try {
+    const { getUserInfo, userInfo } = useUserStore()
+    const { generateRoutes } = usePermissionStore()
+    let accessRoutes: RouteRecordRaw[] = []
+    let flatRoutes: RouteRecordRaw[] = []
+
     asyncRoutes.forEach((route) => {
       if (route.children && route.children.length > 0) {
         route.children.forEach((child) => {
@@ -20,19 +25,36 @@ const init = async () => {
       router.addRoute(route)
     })
 
+    if (getToken()) {
+      if (userInfo.perms.length === 0) await getUserInfo()
+      accessRoutes = await generateRoutes(userInfo.perms)
+      flatRoutes = flattenRoutes(JSON.parse(JSON.stringify(accessRoutes)))
+      router.addRoute({ path: '/', redirect: flatRoutes[0].path })
+    }
+
     router.beforeEach(async (to, from, next) => {
       if (getToken()) {
-        const { getUserInfo, userInfo } = useUserStore()
-        if (userInfo.perms.length === 0) await getUserInfo()
-        const { generateRoutes } = usePermissionStore()
-        const accessRoutes = await generateRoutes(userInfo.perms)
-        const flatRoutes = flattenRoutes(JSON.parse(JSON.stringify(accessRoutes)))
-        const accessRoutesNameList = flatRoutes.map((route) => route.path)
-
-        if (accessRoutesNameList.includes(to.path)) {
-          next()
+        if (userInfo.perms.length === 0) {
+          await getUserInfo()
+          accessRoutes = await generateRoutes(userInfo.perms)
+          flatRoutes = flattenRoutes(JSON.parse(JSON.stringify(accessRoutes)))
+          router.addRoute({ path: '/', redirect: flatRoutes[0].path })
+          next(flatRoutes[0].path)
         } else {
-          alert('没有权限')
+          const accessRoutesNameList = flatRoutes.map((route) => route.path)
+          const asyncRoutesNameList = flattenRoutes(JSON.parse(JSON.stringify(asyncRoutes))).map(
+            (route) => route.path
+          )
+
+          if (asyncRoutesNameList.includes(to.path)) {
+            if (accessRoutesNameList.includes(to.path)) {
+              next()
+            } else {
+              alert('没有权限')
+            }
+          } else {
+            alert('404')
+          }
         }
       } else {
         if (whiteList.indexOf(to.path) !== -1) {
