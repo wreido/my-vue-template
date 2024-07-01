@@ -19,8 +19,6 @@ const init = async () => {
         route.children.forEach((child) => {
           child.component = child.component || Layout
         })
-      } else {
-        router.addRoute({ path: '/', redirect: route.path })
       }
       router.addRoute(route)
     })
@@ -50,10 +48,10 @@ const init = async () => {
             if (accessRoutesNameList.includes(to.path)) {
               next()
             } else {
-              next(`/error/noPermission`)
+              next(`/error/page/noPermission`)
             }
           } else {
-            next(`/error/notFound`)
+            next(`/error/page/notFound`)
           }
         }
       } else {
