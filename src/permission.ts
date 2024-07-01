@@ -63,8 +63,6 @@ const init = async () => {
           next(`/user/login`)
         }
       }
-
-      console.log(router.getRoutes())
     })
   } catch (error) {
     console.error('Failed to initialize routes:', error)
