@@ -50,7 +50,7 @@ export const usePermissionStore = defineStore({
   getters: {
     // doubleCount: ({ count }) => count * 2
   },
-  persist: true
+  persist: false
   // persist: [
   //   {
   //     paths: ['toLocal'],

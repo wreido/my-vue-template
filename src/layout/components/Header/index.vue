@@ -2,7 +2,7 @@
   <div class="header-warpper">
     <section class="logo"><img src="@/assets/image/logo.svg" alt="" /></section>
     <section class="menu">
-      <template v-for="router in permission.accessedRoutes" :key="router.path">
+      <template v-for="router in accessedRoutes" :key="router.path">
         <div
           class="item"
           :class="route.path.indexOf(`${router.path}`) !== -1 ? 'item curr' : 'item'"
@@ -29,15 +29,16 @@
 import { ref } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
 import { useRouter, useRoute } from 'vue-router'
-import { usePermissionStore } from '@/stores'
+import { usePermissionStore, useSystemStore } from '@/stores'
 import { Sunny, Moon } from '@element-plus/icons-vue'
 
-const permission = usePermissionStore()
+//路由模块切换
+const { accessedRoutes } = usePermissionStore()
 const router = useRouter()
 const route = useRoute()
 
 const changeRouterModule = (item: RouteRecordRaw) => {
-  const fatherRoute = permission.accessedRoutes.find((el) => el.path === item.path)
+  const fatherRoute = accessedRoutes.find((el) => el.path === item.path)
 
   const path =
     fatherRoute?.children?.[0]?.children?.[0]?.path ||
@@ -49,19 +50,18 @@ const changeRouterModule = (item: RouteRecordRaw) => {
 }
 
 //主题切换
+const { theme, setTheme } = useSystemStore()
 const themeStatus = ref(true)
 const htmlDome = document.getElementsByTagName('html')[0]
 const themeMedia = window.matchMedia('(prefers-color-scheme: light)')
 
-if (themeMedia.matches) {
-  //light
-  themeStatus.value = true
-  htmlDome.className = 'light'
+if (theme) {
+  themeStatus.value = theme === 'light'
 } else {
-  //dark
-  themeStatus.value = false
-  htmlDome.className = 'dark'
+  themeStatus.value = themeMedia.matches
 }
+
+htmlDome.className = theme ? theme : themeStatus.value ? 'light' : 'dark'
 
 //监听系统主题
 themeMedia.addEventListener('change', (e) => {
@@ -69,15 +69,18 @@ themeMedia.addEventListener('change', (e) => {
     //light
     themeStatus.value = true
     htmlDome.className = 'light'
+    setTheme('light')
   } else {
     //dark
     themeStatus.value = false
     htmlDome.className = 'dark'
+    setTheme('dark')
   }
 })
 
 const changeTheme = () => {
   htmlDome.className = themeStatus.value ? 'light' : 'dark'
+  setTheme(themeStatus.value ? 'light' : 'dark')
 }
 </script>
 
