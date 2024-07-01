@@ -8,7 +8,7 @@
       :collapse-transition="false"
     >
       <template v-for="item in permission.accessedRoutes" :key="item.name">
-        <template v-if="!item.meta?.hidden">
+        <template v-if="!item.meta?.hidden && $route.path.indexOf(`${item.path}`) !== -1">
           <SubMenu v-for="subMenu in item.children" :key="subMenu.name" :subMenu="subMenu" />
         </template>
       </template>
