@@ -1,7 +1,9 @@
-import { RequstInterceptors } from './type'
 import type { AxiosError } from 'axios'
 import axios from 'axios'
-import { getToken } from '@/utils/auth'
+import { getToken, removeToken } from '@/utils/auth'
+import router from '@/router'
+import { ElMessageBox } from 'element-plus'
+import { RequstInterceptors } from './type'
 import AxiosMax from './Axios'
 import { retry } from './axiosRetry'
 import { checkErrorStatus } from './checkErrorStatus'
@@ -15,8 +17,19 @@ const _RequstInterceptors: RequstInterceptors = {
   requestInterceptorsCatch(err) {
     return err
   },
-  responseInterceptor(config) {
-    return config
+  responseInterceptor(res) {
+    if (res?.data?.code === 403) {
+      removeToken()
+      ElMessageBox.alert('登录信息过期,请重新登录', '错误', {
+        confirmButtonText: '确定',
+        type: 'error',
+        showClose: false
+      }).then(async () => {
+        router.push('/user/login')
+      })
+    }
+
+    return res
   },
   responseInterceptorsCatch(axiosInstance, err: AxiosError) {
     const message = err.code === 'ECONNABORTED' ? '请求超时' : undefined

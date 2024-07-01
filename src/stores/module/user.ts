@@ -19,8 +19,7 @@ export const useUserStore = defineStore({
       return new Promise((resolve, reject) => {
         getUserInfo()
           .then(({ data }) => {
-            console.log(data)
-            this.userInfo.perms = data.perms ?? []
+            this.userInfo.perms = data?.perms ?? []
             resolve(this.userInfo)
           })
           .catch((error) => {

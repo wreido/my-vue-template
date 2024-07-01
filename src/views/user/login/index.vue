@@ -8,11 +8,9 @@ import { setToken } from '@/utils/auth'
 let Router = useRouter()
 
 const login = () => {
-  console.log(131)
   setToken(
-    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjowLCJjcmVhdGVUaW1lIjoxNzE5NDcwMTgyODIwLCJleHAiOjE3MTk3MjkzODIsInVzZXJJZCI6MX0.wo8uRVLs8qtTYXrmYjMU0xkSwV9OZ6bDcYg60Ta_fP0'
+    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjowLCJjcmVhdGVUaW1lIjoxNzE5Nzk5NzE2MTgxLCJleHAiOjE3MjAwNTg5MTYsInVzZXJJZCI6MX0.sm2X0ubkfEbwdUwXV1olndA8YN7Miaxtkyops4VDzMQ'
   )
-
   Router.push('/')
 }
 </script>
