@@ -4,7 +4,7 @@
   <el-button @click="post">发送post请求</el-button>
   <el-button type="primary" @click="retryGet">重复执行GET请求</el-button>
   <el-button type="primary" plain @click="test">跳转商品审核</el-button>
-  <el-table :data="tableData" stripe style="width: 100%">
+  <el-table :data="tableData" stripe style="width: 100%" v-permission="['shopping/goods/list']">
     <el-table-column prop="date" label="时间" />
     <el-table-column prop="name" label="名字" />
     <el-table-column prop="address" label="地址" />

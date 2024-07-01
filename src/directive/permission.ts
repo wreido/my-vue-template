@@ -1,8 +1,11 @@
-import store from '@/store'
+import type { DirectiveBinding } from 'vue'
+import { useUserStore } from '@/stores'
 
-function checkPermission(el, binding) {
+function checkPermission(el: HTMLElement, binding: DirectiveBinding) {
   const { value } = binding
-  const perms = store.getters && store.getters.perms
+  const {
+    userInfo: { perms }
+  } = useUserStore()
 
   if (value && value instanceof Array) {
     if (value.length > 0) {
@@ -25,10 +28,10 @@ function checkPermission(el, binding) {
 }
 
 export default {
-  inserted(el, binding) {
+  mounted(el: HTMLElement, binding: DirectiveBinding) {
     checkPermission(el, binding)
   },
-  update(el, binding) {
+  update(el: HTMLElement, binding: DirectiveBinding) {
     checkPermission(el, binding)
   }
 }
