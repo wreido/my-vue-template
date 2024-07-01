@@ -1,6 +1,7 @@
 export default {
   meta: {
     name: '商品管理',
-    icon: 'Goods'
+    icon: 'Goods',
+    sort: 1
   }
 }

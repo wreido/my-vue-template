@@ -25,6 +25,8 @@ const init = async () => {
       router.addRoute(route)
     })
 
+    console.log(router.getRoutes())
+
     if (getToken()) {
       if (userInfo.perms.length === 0) await getUserInfo()
       accessRoutes = await generateRoutes(userInfo.perms)

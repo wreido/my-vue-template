@@ -1,4 +1,7 @@
 export default {
-  name: 'Login',
-  menuOrder: 0
+  meta: {
+    name: 'Login',
+    hidden: true,
+    sort: 3
+  }
 }

@@ -2,6 +2,7 @@ export default {
   meta: {
     name: '商城',
     perms: ['shopping'],
-    hidden: false
+    hidden: false,
+    sort: 1
   }
 }

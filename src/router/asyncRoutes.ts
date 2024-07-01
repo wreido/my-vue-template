@@ -7,7 +7,7 @@ const second: Array<RouteRecordRaw> = []
 const three: Array<RouteRecordRaw> = []
 
 type PageConfig = {
-  meta?: RouteMeta
+  meta: RouteMeta
   [key: string]: any
 }
 
@@ -43,11 +43,12 @@ Object.entries(pages).map(([path, pageConfig]) => {
 
 function mergeRouter(routerArry: Array<Array<RouteRecordRaw>>) {
   const flag: Array<RouteRecordRaw> = []
-
+  routerArry[0] = routerArry[0].sort((a: any, b: any) => a.meta.sort - b.meta.sort)
   routerArry[0].forEach((fatherRouter: RouteRecordRaw) => {
     const currSecond: RouteRecordRaw = {
       ...fatherRouter
     }
+    routerArry[1] = routerArry[1].sort((a: any, b: any) => a.meta.sort - b.meta.sort)
     routerArry[1].forEach((childrenRouter) => {
       if (childrenRouter.path.includes(fatherRouter.path)) {
         currSecond?.children?.push(childrenRouter)

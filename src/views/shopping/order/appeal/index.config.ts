@@ -1,6 +1,7 @@
 export default {
   meta: {
     name: '订单申诉',
-    hidden: false
+    hidden: false,
+    sort: 2
   }
 }

@@ -1,5 +1,6 @@
 export default {
   meta: {
-    name: '商品审核'
+    name: '商品审核',
+    sort: 2
   }
 }

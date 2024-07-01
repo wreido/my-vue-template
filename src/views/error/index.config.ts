@@ -1,7 +1,7 @@
 export default {
   meta: {
-    name: 'User',
+    name: 'Error',
     hidden: true,
-    sort: 2
+    sort: 3
   }
 }
