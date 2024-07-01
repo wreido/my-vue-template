@@ -14,14 +14,11 @@
 <script setup lang="ts" name="GoodsList">
 import useRequest from '@/server/http/index'
 import { useRouter } from 'vue-router'
-import { removeToken } from '@/utils/auth'
 
 let Router = useRouter()
 
 const test = () => {
-  // Router.push('/shopping/goods/process')
-  removeToken()
-  Router.push('/user/login')
+  Router.push('/shopping/goods/process')
 }
 
 const tableData = [

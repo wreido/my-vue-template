@@ -1,7 +1,7 @@
 export default {
   meta: {
-    name: '登录',
+    name: '权限不足',
     hidden: true,
-    sort: 3
+    sort: 1
   }
 }

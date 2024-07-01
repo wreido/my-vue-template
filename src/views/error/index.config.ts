@@ -1,6 +1,6 @@
 export default {
   meta: {
-    name: 'Error',
+    name: '错误',
     hidden: true,
     sort: 3
   }

@@ -52,10 +52,10 @@ const init = async () => {
             if (accessRoutesNameList.includes(to.path)) {
               next()
             } else {
-              alert('没有权限')
+              next(`/error/noPermission`)
             }
           } else {
-            alert('404')
+            next(`/error/notFound`)
           }
         }
       } else {

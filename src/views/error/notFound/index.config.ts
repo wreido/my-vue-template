@@ -1,7 +1,7 @@
 export default {
   meta: {
-    name: '登录',
+    name: '页面不存在',
     hidden: true,
-    sort: 3
+    sort: 2
   }
 }

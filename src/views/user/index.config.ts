@@ -1,6 +1,6 @@
 export default {
   meta: {
-    name: 'User',
+    name: '用户',
     hidden: true,
     sort: 2
   }
